@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TimTimCell | Tecnologia e Acessórios</title>
+<meta name="description" content="Descubra celulares, acessórios e ofertas de tecnologia na TimTimCell.">
+<style>
+:root {
+  --fundo:#f5f7ff;
+  --texto:#172033;
+  --azul:#4356f5;
+  --rosa:#f348a5;
+  --verde:#16a878;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--fundo);
+  color:var(--texto);
+}
+header {
+  color:white;
+  background:linear-gradient(120deg,#4356f5,#a83ef1,#f348a5);
+  padding:20px 5%;
+}
+.topo {
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.logo { font-size:28px;font-weight:900; }
+.logo span { color:#fff19a; }
+header p { margin:7px 0 0; }
+nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  margin-left:14px;
+}
+.hero {
+  max-width:1100px;
+  margin:25px auto;
+  padding:30px 5%;
+  border-radius:24px;
+  background:linear-gradient(120deg,#171d45,#4730a0);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.hero h1 { font-size:clamp(30px,5vw,48px);margin:0 0 12px; }
+.hero p { line-height:1.6;color:#e6e6ff; }
+.hero .emoji { font-size:90px; }
+.botao {
+  display:inline-block;
+  border:0;
+  border-radius:12px;
+  padding:13px 18px;
+  font-size:15px;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
+  background:linear-gradient(100deg,#f348a5,#7545f5);
+  color:white;
+}
+main { max-width:1100px;margin:auto;padding:0 5% 35px; }
+h2 { margin-top:28px; }
+.filtros { display:flex;gap:8px;flex-wrap:wrap;margin:15px 0; }
+.filtros button {
+  border:1px solid #d9def0;
+  background:white;
+  border-radius:20px;
+  padding:10px 14px;
+  cursor:pointer;
+}
+.filtros button.ativo { background:#4356f5;color:white; }
+.busca {
+  width:100%;
+  padding:14px;
+  border:1px solid #d9def0;
+  border-radius:12px;
+  font-size:16px;
+}
+.grade {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.produto {
+  background:white;
+  border:1px solid #e5e8f3;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 18px #18204b0b;
+}
+.foto {
+  min-height:140px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:66px;
+  background:linear-gradient(135deg,#e4e8ff,#ffe4f2);
+}
+.info { padding:16px; }
+.info h3 { margin:0 0 8px;font-size:18px; }
+.info p { color:#626b80;font-size:14px;line-height:1.5; }
+.preco { font-size:22px;font-weight:900;color:#4356f5;margin:12px 0; }
+.info .botao { width:100%;text-align:center; }
+.aviso { font-size:12px;color:#737b8c;line-height:1.5; }
+.vazio { display:none;padding:20px; }
+footer {
+  background:#171d35;
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+  line-height:1.8;
+}
+footer a { color:#fff19a; }
+@media(max-width:700px) {
+  .grade { grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
+  .hero { margin:16px 12px;padding:23px; }
+  .hero .emoji { font-size:55px; }
+  .info { padding:11px; }
+  .info h3 { font-size:15px; }
+  .preco { font-size:18px; }
+  nav a { margin-left:0;margin-right:10px; }
+}
+@media(max-width:390px) {
+  .grade { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="topo">
+    <div>
+      <div class="logo">TimTim<span>Cell</span> ✦</div>
+      <p>Seu mundo de tecnologia</p>
+    </div>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Tecnologia que combina com você!</h1>
+    <p>Descubra acessórios, eletrônicos e novidades para o seu dia a dia.</p>
+    <a class="botao" href="#produtos">VER PRODUTOS →</a>
+  </div>
+  <div class="emoji">📱</div>
+</section>
+
+<main>
+  <section id="produtos">
+    <h2>✨ Nossa vitrine</h2>
+    <p>Explore produtos e confira as ofertas nas lojas parceiras.</p>
+    <input id="busca" class="busca" type="search" placeholder="🔎 Buscar produto..." aria-label="Buscar produto">
+
+    <div class="filtros">
+      <button class="ativo" data-cat="Todos">Todos</button>
+      <button data-cat="Celulares">Celulares</button>
+      <button data-cat="Acessórios">Acessórios</button>
+      <button data-cat="Áudio">Áudio</button>
+    </div>
+
+    <div class="grade" id="grade"></div>
+    <p id="vazio" class="vazio">Nenhum produto encontrado.</p>
+    <p class="aviso">Os produtos exibidos são exemplos. Confirme os preços e substitua os links pelos seus links de afiliado antes de divulgar a loja.</p>
+  </section>
+
+  <section id="sobre">
+    <h2>💜 Sobre a TimTimCell</h2>
+    <p>Uma vitrine de tecnologia para ajudar você a descobrir produtos e comparar ofertas de lojas parceiras.</p>
+  </section>
+</main>
+
+<footer id="contato">
+  <strong>TimTimCell ✦</strong><br>
+  Tecnologia, novidades e boas descobertas.<br>
+  Contato: <a href="mailto:timtimcampeaoz@gmail.com">timtimcampeaoz@gmail.com</a>
+  <p class="aviso">Alguns links poderão ser links de afiliado. Podemos receber comissão por compras qualificadas, sem custo adicional para você.</p>
+  <span>© <span id="ano"></span> TimTimCell</span>
+</footer>
+
+<script>
+const produtos = [
+  {nome:"Smartphone",cat:"Celulares",emoji:"📱",desc:"Celular para o dia a dia.",preco:"Consulte a oferta",link:""},
+  {nome:"Fone Bluetooth",cat:"Áudio",emoji:"🎧",desc:"Liberdade para ouvir suas músicas.",preco:"Consulte a oferta",link:""},
+  {nome:"Carregador USB",cat:"Acessórios",emoji:"🔌",desc:"Acessório para carregar seus dispositivos.",preco:"Consulte a oferta",link:""},
+  {nome:"Capa para celular",cat:"Acessórios",emoji:"📱",desc:"Proteção e estilo para seu aparelho.",preco:"Consulte a oferta",link:""},
+  {nome:"Caixa de som",cat:"Áudio",emoji:"🔊",desc:"Som para curtir seus momentos.",preco:"Consulte a oferta",link:""},
+  {nome:"Relógio inteligente",cat:"Acessórios",emoji:"⌚",desc:"Tecnologia no seu pulso.",preco:"Consulte a oferta",link:""}
+];
+let categoria = "Todos";
+const grade = document.getElementById("grade");
+const busca = document.getElementById("busca");
+
+function renderizar() {
+  const termo = busca.value.toLocaleLowerCase("pt-BR");
+  const lista = produtos.filter(p =>
+    (categoria === "Todos" || p.cat === categoria) &&
+    (p.nome + " " + p.cat + " " + p.desc)
+      .toLocaleLowerCase("pt-BR").includes(termo)
+  );
+  grade.innerHTML = "";
+  document.getElementById("vazio").style.display = lista.length ? "none" : "block";
+
+  lista.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "produto";
+
+    const foto = document.createElement("div");
+    foto.className = "foto";
+    foto.textContent = p.emoji;
+
+    const info = document.createElement("div");
+    info.className = "info";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = p.nome;
+
+    const descricao = document.createElement("p");
+    descricao.textContent = p.desc;
+
+    const preco = document.createElement("div");
+    preco.className = "preco";
+    preco.textContent = p.preco;
+
+    const link = document.createElement("a");
+    link.className = "botao";
+    link.textContent = p.link ? "VER OFERTA →" : "LINK EM BREVE";
+    link.href = p.link || "#contato";
+    if (p.link) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer sponsored";
+    }
+
+    info.append(titulo, descricao, preco, link);
+    card.append(foto, info);
+    grade.append(card);
+  });
+}
+
+document.querySelectorAll(".filtros button").forEach(botao => {
+  botao.addEventListener("click", () => {
+    categoria = botao.dataset.cat;
+    document.querySelectorAll(".filtros button").forEach(b =>
+      b.classList.toggle("ativo", b === botao)
+    );
+    renderizar();
+  });
+});
+
+busca.addEventListener("input", renderizar);
+document.getElementById("ano").textContent = new Date().getFullYear();
+renderizar();
+</script>
+</body>
+</html>
